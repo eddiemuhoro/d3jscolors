@@ -7,9 +7,9 @@ const CustomWebcam = () => {
     const [facingMode, setFacingMode] = useState('environment'); // Default to front camera
 
 
-    // const switchCamera = () => {
-    //     setFacingMode(prevState => (prevState === 'user' ? 'environment' : 'user'));
-    //   };
+    const switchCamera = () => {
+        setFacingMode(prevState => (prevState === 'user' ? 'environment' : 'user'));
+      };
 
     const capture = useCallback(() => {
         const imageSrc = webcamRef.current.getScreenshot();
@@ -26,7 +26,7 @@ const CustomWebcam = () => {
       {imgSrc ? (
         <img src={imgSrc} alt="webcam" />
       ) : (
-        <Webcam height={600} width={600} ref={webcamRef} />
+        <Webcam height={600} width={600} ref={webcamRef} videoConstraints={{ facingMode }} />
       )}
       <div className="btn-container">
         {imgSrc ? (
@@ -35,6 +35,7 @@ const CustomWebcam = () => {
             <>
             
             <button onClick={capture}>Capture photo</button>
+        <button onClick={switchCamera}>Switch Camera</button>
             </>
         
         )}
