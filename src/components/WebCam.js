@@ -4,6 +4,12 @@ import Webcam from "react-webcam";
 const CustomWebcam = () => {
     const webcamRef = useRef(null);
     const [imgSrc, setImgSrc] = useState(null);
+    const [facingMode, setFacingMode] = useState('user'); // Default to front camera
+
+
+    const switchCamera = () => {
+        setFacingMode(prevState => (prevState === 'user' ? 'environment' : 'user'));
+      };
 
     const capture = useCallback(() => {
         const imageSrc = webcamRef.current.getScreenshot();
@@ -26,7 +32,12 @@ const CustomWebcam = () => {
         {imgSrc ? (
           <button onClick={retake}>Retake photo</button>
         ) : (
-          <button onClick={capture}>Capture photo</button>
+            <>
+            
+            <button onClick={capture}>Capture photo</button>
+        <button onClick={switchCamera}>Switch Camera</button>
+            </>
+        
         )}
       </div>
     </div>
