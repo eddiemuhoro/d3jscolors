@@ -3,6 +3,8 @@ import './App.css';
 import Colors from './components/Colors';
 import CustomWebcam from './components/WebCam';
 import RomaniaLocationForm from './components/countries/Country';
+import Tracker from './components/tracker/Tracker';
+import Setup from './components/tracker/Setup';
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
       <Colors />
       {/* <RomaniaLocationForm /> */}
       {/* <CustomWebcam /> */}
+      {/* <Tracker /> */}
+      {/* <Setup /> */}
     </div>
   );
 }
